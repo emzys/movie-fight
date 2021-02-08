@@ -80,12 +80,33 @@ const runComparison = () => {
         const leftSideValue = parseFloat(leftStat.dataset.value);
         const rightSideValue = parseFloat(rightStat.dataset.value);
 
-        if (leftSideValue < rightSideValue) {
-            leftStat.classList.remove('is-primary');
-            leftStat.classList.add('is-warning');
+        if (leftSideValue == rightSideValue) {
+            if (leftStat.classList.contains('is-warning')){
+                leftStat.classList.remove('is-warning');
+                leftStat.classList.add('is-primary');
+            };
+            if (rightStat.classList.contains('is-warning')){
+                rightStat.classList.remove('is-warning');
+                rightStat.classList.add('is-primary');
+            };
+        } else if (leftSideValue < rightSideValue) {
+            if (leftStat.classList.contains('is-primary')){
+                leftStat.classList.remove('is-primary');
+                leftStat.classList.add('is-warning');
+            };
+            if (rightStat.classList.contains('is-warning')){
+                rightStat.classList.remove('is-warning');
+                rightStat.classList.add('is-primary');
+            };
         } else {
-            rightStat.classList.remove('is-primary');
-            rightStat.classList.add('is-warning');
+            if (rightStat.classList.contains('is-primary')){
+                rightStat.classList.remove('is-primary');
+                rightStat.classList.add('is-warning');
+            };
+            if (leftStat.classList.contains('is-warning')){
+                leftStat.classList.remove('is-warning');
+                leftStat.classList.add('is-primary');
+            };
         };
     })
 };
